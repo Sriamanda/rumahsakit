@@ -1,0 +1,69 @@
+<section class="content-header">
+          <h1>
+            Data Pasien     <small>Rumah Sakit</small>
+          </h1>
+</section>
+
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
+
+             
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+		
+			
+      <a href="<?php echo site_url('Pasien/VFormAddPasien'); ?>" class="btn btn-primary btn-sm fa fa-plus"> Tambah Data</a><br><br>
+		
+	
+              <table class="table table-striped">
+                <tr>
+          
+                  <th>ID</th>
+                  <th>NIK</th>
+                  <th>Nama Pasien</th>
+                  <th>Alamat</th>
+                  <th>Penyakit</th>
+                  <th>Aksi</th>
+                </tr>
+                
+                <?php
+	if(!empty($DataPasien))
+	{
+		foreach($DataPasien as $ReadDS)
+		{
+	?>
+
+	<tr>
+		
+		<td><?php echo $ReadDS->id_pasien; ?></td>
+    <td><?php echo $ReadDS->nik; ?></td>
+    <td><?php echo $ReadDS->nama_pasien; ?></td>
+    <td><?php echo $ReadDS->alamat; ?></td>
+    <td><?php echo $ReadDS->penyakit; ?></td>
+
+		<td width="5%">
+			<a href="<?php echo site_url('Pasien/DataPasien/'.$ReadDS->id_pasien.'/view') ?>">Update</a>
+      <td>
+      <a href="<?php echo site_url('Pasien/DeleteDataPasien/'.$ReadDS->id_pasien) ?>">Delete</a>
+		</td>
+	</tr>
+            
+         <?php
+     }
+ }
+ ?>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+
+
+
+
